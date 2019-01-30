@@ -57,6 +57,11 @@ By Prasanna Raj Mallipudi
 
   ```
   After this if all goes well access your web application from [http://localhost:5001](http://localhost:5001)
+  
+## JSON Endpoint
+  - Cam Catalog JSON: /brand/01/JSON - Displays the Brands and Models data
+  
+  - /brand/<int:brand_id>/JSON
 
 ## Content Help
  --- Udacity Videos
