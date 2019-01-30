@@ -1,0 +1,74 @@
+{% block title %} New Brand {% endblock %}
+{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block content %}
+<div>
+  <style>
+    .edit {
+      height:25px;
+    }
+    .delete {
+      height:25px;
+    }
+  </style>
+    <!-- Navigation -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="alert">
+        {% for message in messages %}
+          <li>
+            <script type="text/javascript">
+              $.notify(`{{message}}`,{position:"top center",className:"info"});
+            </script>
+          </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    <main class="container-fluid">
+    <!-- Page Content -->
+        <div class="container">
+          <div>
+              <div class="row">
+                <a href="{{url_for('showBrands')}}" class=" btn btn-info edit btn-sm fa fa-mail-reply-all back"></a>
+                <a href="{{url_for("newModel",brand_id=brand.id)}}" class=" btn btn-info new" title="Add New Model"><span class="fa fa-plus"></span></a>
+              </div>
+
+          </div>
+          <h6> {{brand.name}} </h6>
+          <!-- Page Heading -->
+          <h1 class="my-4"></h1>
+          <div class="card">
+            <table class="table table-bordered">
+                <tr class="">
+                  <th>Model Number</th>
+                  <th>Color</th>
+                  <th>Price</th>
+                  <th>Description</th>
+                  {% if 'username' in cur_user %}
+                    <th colspan="2">Options</th>
+                  {% endif %}
+                </tr>
+                {% for i in model %}
+                  <tr>
+                    <td>{{i.modelnumber}}</td>
+                    <td>{{i.colors}}</td>
+                    <td>{{i.price}}</td>
+                    <td>{{i.description}}</td>
+                    {% if 'username' in cur_user %}
+                      <td>
+                        <a href="{{url_for('editModel',brand_id=brand.id,model_id=i.id)}}" class="btn btn-info btn-sm fa fa-pencil edit "></a>
+                      </td>
+                      <td>
+                        <a href="{{url_for('deleteModel',brand_id=brand.id,model_id=i.id)}}" class="btn btn-danger btn-sm fa fa-remove delete "></a>
+                      </td>
+                    {% endif %}
+
+                  </tr>
+                {% endfor %}
+            </table>
+    </div>
+    <!-- /.container -->
+    </main>
+</div>
+{% endblock %}

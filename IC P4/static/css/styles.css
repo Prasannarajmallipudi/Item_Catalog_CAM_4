@@ -1,0 +1,87 @@
+  .new:hover{
+        background-color: darkorange;
+        color: white;
+        text-decoration: none;
+    }
+    .edit:hover{
+        background-color: #347AB7;
+        border-color: #337AB7;
+        color: white;
+        text-decoration: none;
+    }
+    .delete{
+
+        float: right;
+    }
+    .delete:hover{
+        background-color: #D9534F;
+        border-color: #D9534F;
+        color: white;
+        text-decoration: none;
+    }
+    .navbar-brand{
+        font-size: 25px;
+        padding-bottom: 0;
+    }
+    .alert,.new{
+        margin-top:20px;
+    }
+    .card-img-top{
+    padding: 15px;
+  }
+  .cards {
+    max-width: 250px;
+    max-height: 120px;
+    margin: 5px;
+  }
+
+  .bg-trans {
+  }
+
+  background-color: rgba(22,30,50,0.6);
+  .bg-test {
+    background-color: #d1c4e9 ;
+  }
+
+  .cards-shadow-blue {
+    box-shadow: 0px 2px 18px #00aaff;
+  }
+
+  .cards-shadow-gray {
+    box-shadow: 0px 2px 2px #CCC,1px 0px 5px #CCC;
+  }
+
+  .cards-shadow-gray:hover {
+    cursor: pointer;
+    border-color: rgba(0,0,0,0.4);
+    border-bottom-width: 15px;
+  }
+
+  .card-body{
+      padding:0px;
+      padding-top: 10px;
+      max-height: 200px;
+  }
+  .title-brand{
+      text-align: center;
+      padding-top: 15px;
+      color: black;
+
+  }
+  .title-brand:hover{
+      color: #327ECC;
+      text-decoration: none;
+  }
+  .text-black {
+    color:black;
+  }
+
+
+
+.bg-trans-black {
+  background-color: rgba(0,0,0,0.4);
+}
+
+.circle-box {
+  border-radius: 50%;
+}

@@ -1,0 +1,23 @@
+body {
+  padding-top:35px;
+  background-image: url("/static/imgs/11583827e63570a.jpg");
+  /* background-color: #CCC; */
+  background-size:cover;
+}
+
+@media (min-width: 850px) {
+  body {
+    padding-top: 35px;
+  }
+}
+
+.catlog-item {
+  margin-bottom: 35px;
+}
+
+.pagination {
+  margin-bottom: 30px;
+}
+.form-control{
+  color:#a07ba0;
+}

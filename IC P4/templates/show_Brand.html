@@ -1,0 +1,56 @@
+{% block title %} New Brand {% endblock %}
+{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Custom styles -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="alert alert-info">
+              {% for message in messages %}
+                <li><strong>{{message}}</strong></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        <div class="container">
+            {% if cur_user['user_id'] %}
+          </div>
+            <a href="{{url_for('newBrand')}}" class="btn btn-link new">Add New Brand</a>
+        </div>
+        {% endif %}
+      <!-- Page Heading -->
+      <h1 class="my-4"></h1>
+<!-- Navigation -->
+    <main>
+      <!-- Page Content -->
+      <div class="container">
+          {% if cur_user['user_id'] %}
+          <div>
+              <a href="{{url_for('newBrand')}}" class="btn btn-link new">Add New Brand</a>
+          </div>
+          {% endif %}
+          <!-- Page Heading -->
+          <h1 class="my-4"></h1>
+
+          <div class="row">
+                {% for b in brands %}
+                <div class="col-lg-4 col-md-4 col-sm-6 catlog-item">
+
+                    <div class="card h-100">
+                        <a href="{{url_for('showModels',brand_id=b.id)}}" class="title-brand"><h2>{{b.name}}</h2></a>
+                        <div class="card-body">
+
+                            {% if cur_user['user_id']==b.user_id %}
+                            <a href="{{url_for('editBrand',brand_id=b.id)}}" class="btn btn-link edit ">Edit</a>
+                            <a href="{{url_for('deleteBrand',brand_id=b.id)}}" class="btn btn-link delete ">Delete</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+          </div>
+          <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </main>
+    {% endblock %}

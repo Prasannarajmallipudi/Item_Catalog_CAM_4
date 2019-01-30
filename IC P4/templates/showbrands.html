@@ -1,0 +1,53 @@
+{% block title %} Showing Brands {% endblock %}
+{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block content %}
+  <div>
+    <!-- Navigation -->
+    <!-- {% with messages = get_flashed_messages()  %} -->
+      {% if messages %}
+          {% for message in messages %}
+          <ul class="alert" style='position: absolute;left: 0px;top: 0px; z-index: -1;'>
+            <li>
+              <script type="text/javascript">
+                $.notify(`{{message}}`,{position:"top center",className:"info"});
+              </script>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    <!-- {% endwith %} -->
+    <main>
+      <!-- Page Content -->
+      <div class="container">
+          <a href="{{url_for('newBrand')}}" class="btn bt-link new mt-4" title="Add New Brand"><span class="fa fa-plus"></span></a>
+      </div>
+
+      <!-- Page Heading -->
+      <h1 class="my-4"></h1>
+      <div class="mx-1 row block-center container-fluid">
+        {% for b in brands %}
+          <div class="card  cards-shadow-gray cards col-lg-3 col-md-3 col-sm-6 catlog-item">
+            <div class="h-100 ">
+              <a href="{{url_for('showModel',brand_id=b.id)}}" class="title-brand">
+                <h2>{{b.name}}</h2>
+                {% if not 'username' in cur_user %}
+                  <img src="/static/imgs/photo.png" alt="no Image" class="offset-4 img-fluid" style="width:100px;height:60px;opacity:0.1">
+                {% endif %}
+              </a>
+              {% if 'username' in cur_user %}
+              <div class="card-body">
+                  <a href="{{url_for('editBrand',brand_id=b.id)}}" class="btn btn-info btn-sm fa fa-pencil-square-o"></a><!-- btn btn-link edit -->
+                  <a href="{{url_for('deleteBrand',brand_id=b.id)}}" class="btn btn-danger btn-sm fa fa-remove float-right"></a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+       </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </main>
+  </div>
+{% endblock %}

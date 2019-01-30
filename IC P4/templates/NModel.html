@@ -1,0 +1,41 @@
+{% block title %} New Model {% endblock %}
+{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <main>
+        <div class="container col-8">
+          <div class="card ">
+            <div class="card-header bg-info">
+                <!-- <a href="{{url_for('showModels',brand_id=brand.id)}}" class="fa fa-mail-reply-all back btn text-white"> </a> -->
+                <a href="#" onclick="back();" class="fa fa-mail-reply-all back"></a>
+                Add New Model to {{brand.name}}
+              </div>
+            <div class="card-body p-4 ">
+              <form action="{{url_for('newModel',brand_id=brand.id)}} " method='POST'>
+                <div class='row'>
+                  <div class='col-4 mb-3'>
+                    <input class="form-control" id="modelnumber" type="text"  name="modelnumber" required placeholder="Enter Model Number">
+                  </div>
+
+                  <div class='col-4 mb-3'>
+                    <input class="form-control" id="colors" type="text"  name="colors" required placeholder="Enter Colors">
+                  </div>
+
+                  <div class="col-4 mb-3">
+                    <input class="form-control" id="price" type="text"  title="Rs 10,999 ..." name="price" required placeholder="Enter Price">
+                  </div>
+
+                  <div class='col-12 mb-3'>
+                    <input class="form-control" id="des" type="text"  name="des" required placeholder="Describe About Adding Model">
+                  </div>
+                </div>
+                <input type="submit" class="btn btn-success btn-block" value=Add>
+            </form>
+            </div>
+          </div>
+        </div>
+    </main>
+    <script>function back() { window.history.back(); }</script>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% block title %} Delete Brands {% endblock %}
+{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="alert alert-info">
+          {% for message in messages %}
+            <li><strong>{{message}}</strong></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+  <main>
+    <div class="container outer col-4">
+      <div class="card card-new mx-auto mt-3">
+      <div class="Table">
+        <div class="card-header bg-danger text-white">
+          Delete {{br.name}} Brand
+        </div>
+        <div class="card-body">
+
+            <form action="{{url_for('deleteBrand',brand_id=br.id)}}" method='POST'>
+
+            <div class="form-group ">
+              <div class="form-row">
+                <div class="col-md-7">
+                  <label>Are You Sure, Want To Delete {{ br.name }} Brand ?</label>
+                </div>
+                <div class="col-md-5">
+                  <input type="submit" class="btn btn-danger btn-sm"  value="Delete">
+                  <a href="{{url_for('showBrands')}}"><input type="button" class="btn btn-primary btn-sm" value="Cancel"> </a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}

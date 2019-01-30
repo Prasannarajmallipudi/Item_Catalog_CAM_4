@@ -1,0 +1,37 @@
+{% block title %} Delete Model {% endblock %}
+{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block content %}
+<div>
+  <main>
+    <div class="container outer col-4">
+      <div class="card card-new mx-auto mt-3">
+      <div class="Table">
+        <div class="card-header bg-danger text-white">Delete  Model {{model.name}}</div>
+        <div class="card-body">
+          <form action="{{url_for('deleteModel',brand_id=brand_id,model_id=model.id)}}" method='POST'>
+
+            <div class="form-group ">
+              <div class="form-row">
+                <div class="col-md-7">
+                  <label>Are You Sure, Want To Delete {{ model.name }} ?</label>
+                </div>
+                <div class="col-md-5">
+                  <input type="submit" class="btn btn-danger btn-sm"  value="Delete">
+                  <a href="{{url_for('showModel',brand_id=brand_id)}}">
+                    <input type="button" class="btn btn-primary btn-sm"  value="Cancel">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
