@@ -189,6 +189,16 @@ def gdisconnect():
 # Same brandmodelsjson in Both Files(Brand and ModelName)
 
 
+@app.route('/brand/<int:brand_id>/model/<int:model_id>/JSON')
+def brandsModelsItemJSON(brand_id, model_id):
+    session = DBSession()
+    brand = session.query(Brand).filter_by(id=brand_id).all()
+    model = session.query(ModelName).filter_by(id=model_id).all()
+    session.close()
+    return jsonify(brand=[i.serialize for i in brand],
+                   model=[i.serialize for i in model])
+
+
 @app.route('/brand/<int:brand_id>/JSON')
 def BrandModelsJSON(brand_id):
     session = DBSession()
@@ -197,6 +207,15 @@ def BrandModelsJSON(brand_id):
     session.close()
     return jsonify(brand=[i.serialize for i in brand],
                    model=[i.serialize for i in model])
+
+
+@app.route('/brand/JSON')
+def BrandJSON():
+    session = DBSession()
+    brand = session.query(Brand)
+    session.close()
+    return jsonify(brand=[i.serialize for i in brand])
+
 
 # To See All Brands and Users Created
 
