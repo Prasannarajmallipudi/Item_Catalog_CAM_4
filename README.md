@@ -27,7 +27,8 @@ By Prasanna Raj Mallipudi
   This application authenticates users using Google Oauth v2 api and stores user data in database.
   More [about](https://developers.google.com/identity/protocols/OAuth2) Google Oauth
 
-  For this api to work you need to have client_secrets.json which can downloaded from [Google Api Console](https://console.developers.google.con)
+  For this api to work you need to have `client_secrets.json` which can downloaded from
+  [Google Api Console](https://console.developers.google.con)
   Then
     - Create a new project
     - Go to credentials page and update your information
