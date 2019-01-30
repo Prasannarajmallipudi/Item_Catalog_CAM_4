@@ -294,7 +294,9 @@ def deleteBrand(brand_id):
     deleteBrd = session.query(Brand).filter_by(id=brand_id).one()
     if 'username' in login_session:
         if login_session['user_id'] == deleteBrd.user_id:
-            deleteMoDU = session.query(ModelName).filter_by(brand_id=brand_id).all()
+            deleteMoDU = session.query(ModelName).filter_by(
+                                                           brand_id=brand_id
+                                                           ).all()
             if request.method == 'POST':
                 for i in deleteMoDU:
                     print("deleting ", i.id)
